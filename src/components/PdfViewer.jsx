@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
-
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function PDFViewer({ fileUrl }) {
@@ -9,7 +8,7 @@ export default function PDFViewer({ fileUrl }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [error, setError] = useState(null);
 
-    const handleLoadError = (error) => {
+  const handleLoadError = (error) => {
     console.error("Error loading PDF:", error);
     setError("Failed to load PDF file.");
   };
@@ -18,9 +17,8 @@ export default function PDFViewer({ fileUrl }) {
     setPageNumber(1); // Reset to first page on new PDF
     console.log("Received fileUrl in PdfViewer:", fileUrl); // 🔍 Debugging
   }, [fileUrl]);
- 
 
- if (!fileUrl) return <p className="text-gray-500">No PDF uploaded</p>;
+  if (!fileUrl) return <p className="text-gray-500">No PDF uploaded</p>;
   return (
     <div className="flex flex-col w-full h-full rounded-lg overflow-hidden">
       <div className="flex justify-between items-center p-1 bg-white shadow-md">
@@ -43,28 +41,30 @@ export default function PDFViewer({ fileUrl }) {
         </button>
       </div>
 
-      <div className="flex justify-center items-center h-full border border-gray-300 rounded">
-        {error ? (
-          <p className="text-red-500">{error}</p>
-        ) : fileUrl ? (
-          <Document
-            file={fileUrl}
-            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-            onLoadError={handleLoadError}
-            className="w-full flex justify-center"
-            crossOrigin="anonymous"
+      <div className="flex flex-col w-full h-full rounded-lg overflow-hidden pt-1">
+        <div className="flex-grow overflow-y-auto max-h-[calc(100vh-100px)] border-gray-300">
+          {" "}
+          {error ? (
+            <p className="text-red-500">{error}</p>
+          ) : fileUrl ? (
+            <Document
+              file={fileUrl}
+              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+              onLoadError={handleLoadError}
+              className="w-full flex justify-center"
+              crossOrigin="anonymous"
             >
-        
-            <Page
-              pageNumber={pageNumber}
-              width={500} // ✅ Fixed width (adjustable)
-              height={500} // ✅ Fixed height (adjustable)
-              renderMode="canvas"
-            />
-          </Document>
-        ) : (
-          <p className="text-gray-500">No PDF uploaded</p>
-        )}
+              <Page
+                pageNumber={pageNumber}
+                
+                width={Math.min(700, window.innerWidth - 40)} // Adjust width based on screen size
+                // renderMode="canvas"
+              />
+            </Document>
+          ) : (
+            <p className="text-gray-500">No PDF uploaded</p>
+          )}
+        </div>
       </div>
     </div>
   );

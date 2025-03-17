@@ -20,12 +20,14 @@ export default function Chat() {
   if (!fileUrl) return <p className="text-gray-500">Loading PDF...</p>;
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 p-4 bg-gray-100">
+    <div className="h-screen flex overflow-hidden">
+      <div className="w-1/2 h-full p-4 bg-gray-100 flex flex-col ">
         <ChatInterface />
       </div>
-      <div className="w-1/2 p-4">
-        <PdfViewer fileUrl={fileUrl} />
+      <div className="w-1/2 p-2 h-screen overflow-hidden flex flex-col">
+        <div className="flex-grow overflow-auto">
+          <PdfViewer fileUrl={fileUrl} />
+        </div>
       </div>
     </div>
   );
