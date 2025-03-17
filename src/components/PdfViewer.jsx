@@ -21,7 +21,7 @@ export default function PDFViewer({ fileUrl }) {
   if (!fileUrl) return <p className="text-gray-500">No PDF uploaded</p>;
   return (
     <div className="flex flex-col w-full h-full rounded-lg overflow-hidden">
-      <div className="flex justify-between items-center p-1 bg-white shadow-md">
+      <div className="flex flex-wrap justify-between items-center p-1 bg-white shadow-md">
         <button
           className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
           onClick={() => setPageNumber((prev) => Math.max(prev - 1, 1))}
