@@ -65,20 +65,20 @@ export default function ChatInterface() {
       </div>
 
       {/* Chat Input at Bottom */}
-      <div className="p-3 bg-white shadow-md flex items-center">
+      <div className="p-3 bg-white shadow-md flex items-center w-full max-w-full gap-2 flex-wrap">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask something..."
-          className="flex-1 border-none outline-none p-2 text-lg"
+          className="flex-1 border-none outline-none p-2 text-lg w-full min-w-0"
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
         <button
           onClick={sendMessage}
-          className="ml-3 text-blue-500 hover:text-blue-700"
+          className="text-blue-500 hover:text-blue-700 flex-shrink-0 p-2"
         >
-          <IoSend size={28} />
+          <IoSend size={24} />
         </button>
       </div>
     </div>
