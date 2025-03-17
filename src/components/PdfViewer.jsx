@@ -23,17 +23,17 @@ export default function PDFViewer({ fileUrl }) {
     <div className="flex flex-col w-full h-full rounded-lg overflow-hidden">
       <div className="flex flex-wrap justify-between items-center p-1 bg-white shadow-md">
         <button
-          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base"
+          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base text-center"
           onClick={() => setPageNumber((prev) => Math.max(prev - 1, 1))}
           disabled={pageNumber <= 1}
         >
           Previous
         </button>
-        <p className="text-lg sm:text-sm md:text-base">
+        <p className="text-lg sm:text-sm md:text-base text-center">
           Page {pageNumber} of {numPages || "?"}
         </p>
         <button
-          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base"
+          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base text-center"
           onClick={() => setPageNumber((prev) => Math.min(prev + 1, numPages))}
           disabled={pageNumber >= numPages}
         >
