@@ -23,17 +23,17 @@ export default function PDFViewer({ fileUrl }) {
     <div className="flex flex-col w-full h-full rounded-lg overflow-hidden">
       <div className="flex flex-wrap justify-between items-center p-1 bg-white shadow-md">
         <button
-          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base"
           onClick={() => setPageNumber((prev) => Math.max(prev - 1, 1))}
           disabled={pageNumber <= 1}
         >
           Previous
         </button>
-        <p className="text-lg ">
+        <p className="text-lg sm:text-sm md:text-base">
           Page {pageNumber} of {numPages || "?"}
         </p>
         <button
-          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+          className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50 sm:text-sm md:text-base"
           onClick={() => setPageNumber((prev) => Math.min(prev + 1, numPages))}
           disabled={pageNumber >= numPages}
         >
@@ -51,13 +51,12 @@ export default function PDFViewer({ fileUrl }) {
               file={fileUrl}
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
               onLoadError={handleLoadError}
-                className="w-full flex-end
+              className="w-full flex-end
                justify-center"
               crossOrigin="anonymous"
             >
               <Page
                 pageNumber={pageNumber}
-                
                 width={Math.min(700, window.innerWidth - 40)} // Adjust width based on screen size
                 // renderMode="canvas"
               />
