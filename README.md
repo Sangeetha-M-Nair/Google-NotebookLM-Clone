@@ -1,12 +1,51 @@
-# React + Vite
+Google NotebookLM Clone - Frontend
+🚀 Google NotebookLM Clone is a web-based application that allows users to upload PDFs and interact with an AI assistant to extract insights from the document.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 Features
+✅ Upload PDF files and store them.
+✅ View file history.
+✅ Ask questions about the PDF content.
+✅ AI assistant responds using OpenAI API.
+✅ React + Vite for fast frontend performance.
+✅ Tailwind CSS for modern UI styling.
 
-Currently, two official plugins are available:
+🛠 Tech Stack
+React (Frontend framework)
+Vite (Faster development server)
+Tailwind CSS (For styling)
+Axios (For API calls)
+React Router (For navigation)
+Vercel (For deployment)
+📥 Installation & Setup
+1️⃣ Clone the Repository
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+git clone https://github.com/your-username/google-notebooklm-clone.git
+cd google-notebooklm-clone/frontend
+2️⃣ Install Dependencies
 
-## Expanding the ESLint configuration
+npm install
+3️⃣ Set Up Environment Variables
+Create a .env file in the frontend/ directory and add:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+VITE_API_BASE_URL=http://localhost:5000   # Change this to your deployed backend URL
+4️⃣ Run the Development Server
+
+npm run dev
+The frontend will run at http://localhost:5173/ (default Vite port).
+
+🚀 Deployment on Vercel
+
+
+Click Deploy.
+🔗 Deployed URL:
+https://google-notebooklm-clone.vercel.app
+
+🛠 Usage
+Upload a PDF file.
+Ask questions related to the document.
+The AI assistant will fetch insights from the uploaded file.
+
+📌 Notes
+ Backend is deployed on Render.
+Updated .env in Vercel to match the backend URL.
+🛠 Built with ❤️ using React, Vite & Tailwind CSS 🚀
