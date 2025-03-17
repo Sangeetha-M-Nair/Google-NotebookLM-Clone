@@ -51,7 +51,8 @@ export default function PDFViewer({ fileUrl }) {
               file={fileUrl}
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
               onLoadError={handleLoadError}
-              className="w-full flex justify-center"
+                className="w-full flex-end
+               justify-center"
               crossOrigin="anonymous"
             >
               <Page
