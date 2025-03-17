@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { IoSend } from "react-icons/io5"; // Import Send icon
+import API_BASE_URL from "../config";
 
 export default function ChatInterface() {
   const [input, setInput] = useState("");
@@ -18,7 +19,7 @@ export default function ChatInterface() {
     setMessages([...messages, newMessage]); // Show user message instantly
 
     try {
-      const res = await axios.post("http://localhost:5000/api/chat", {
+      const res = await axios.post(`${API_BASE_URL}/api/chat`, {
         message: input,
         fileUrl,
       });

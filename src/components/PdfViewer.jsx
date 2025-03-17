@@ -1,21 +1,8 @@
 import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
-// //  Set the correct worker path (from public folder)
-// import "react-pdf/dist/esm/Page/TextLayer.css";
-// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
-
-
-// pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
-
-// pdfjs.GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.min.js`;
-// pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
-// pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
-
 
 export default function PDFViewer({ fileUrl }) {
   const [numPages, setNumPages] = useState(null);
@@ -67,14 +54,11 @@ export default function PDFViewer({ fileUrl }) {
             className="w-full flex justify-center"
             crossOrigin="anonymous"
             >
-          {/* // <Document
-          //   file="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-          //   onLoadError={handleLoadError}
-          // > */}
+        
             <Page
               pageNumber={pageNumber}
               width={500} // ✅ Fixed width (adjustable)
-              height={700} // ✅ Fixed height (adjustable)
+              height={500} // ✅ Fixed height (adjustable)
               renderMode="canvas"
             />
           </Document>

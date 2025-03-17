@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
+import API_BASE_URL from "../../config";
 
 export default function HomePage() {
   const [files, setFiles] = useState("");
@@ -21,7 +22,7 @@ export default function HomePage() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/pdf/upload",
+       `${API_BASE_URL}/api/pdf/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
